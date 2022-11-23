@@ -2,10 +2,32 @@ function getRandomInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function NaNmin() {
+    if (isNaN(minValue)) {
+        return minValue = 1;
+    } else if (minValue <= -1000) {
+        return minValue = -999;
+    } else {
+        return minValue;
+    }
+}
+function NaNmax() {
+    if (isNaN(maxValue)) {
+        return maxValue = 100;
+    } else if (maxValue >= 1000) {
+        return maxValue = 999;
+    } else {
+        return maxValue;
+    }
+}
+
 let minValue = parseInt(prompt('Минимальное знание числа для игры', '1'));
 let maxValue = parseInt(prompt('Максимальное знание числа для игры', '100'));
 
-let arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я отградаю его максимум за 6 попыток`, `Загадайте любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь, максимум за 6 раз`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
+minValue = NaNmin(minValue);
+maxValue = NaNmax(maxValue);
+
+let arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Загадайте любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
 condition = arrСondition[getRandomInRange(0, 2)];
 alert(condition);
 
@@ -13,8 +35,8 @@ let answerNumber = Math.floor((minValue + maxValue) / 2);
 let orderNumber = 1;
 let gameRun = true;
 
-const orderNumberField = document.getElementById('orderNumberField');
-const answerField = document.getElementById('answerField');
+let orderNumberField = document.getElementById('orderNumberField');
+let answerField = document.getElementById('answerField');
 
 orderNumberField.innerText = orderNumber;
 answerField.innerText = `Вы загадали число ${answerNumber}?`;
@@ -23,7 +45,7 @@ document.getElementById('btnRetry').addEventListener('click', function () {
     minValue = parseInt(prompt('Минимальное знание числа для игры', '1'));
     maxValue = parseInt(prompt('Максимальное знание числа для игры', '100'));
 
-    arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я отградаю его максимум за 6 попыток`, `Загадайте любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь, максимум за 6 раз`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
+    arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Загадайте любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
     condition = arrСondition[getRandomInRange(0, 2)];
     alert(condition);
 
