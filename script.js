@@ -2,7 +2,7 @@ function getRandomInRange(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function NanMin() {
+function nanMin() {
     if (isNaN(minValue)) {
         return minValue = 1;
     } else if (minValue <= -1000) {
@@ -11,7 +11,7 @@ function NanMin() {
         return minValue;
     }
 }
-function NanMax() {
+function nanMax() {
     if (isNaN(maxValue)) {
         return maxValue = 100;
     } else if (maxValue >= 1000) {
@@ -24,8 +24,8 @@ function NanMax() {
 let minValue = parseInt(prompt('Минимальное знание числа для игры', '1'));
 let maxValue = parseInt(prompt('Максимальное знание числа для игры', '100'));
 
-minValue = NanMin(minValue);
-maxValue = NanMax(maxValue);
+minValue = nanMin(minValue);
+maxValue = nanMax(maxValue);
 
 let arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Загадайте любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
 condition = arrСondition[getRandomInRange(0, 2)];
