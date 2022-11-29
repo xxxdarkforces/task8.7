@@ -25,13 +25,13 @@ function startGame() {
     minValue = limitMinValue(minValue);
     maxValue = limitMaxValue(maxValue);
     gameRun = minValue <= maxValue ? true : restartGameRun();
-    let arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Загадайте любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
-    condition = arrСondition[getRandomInRange(0, 2)];
+    let arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Введите любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
+    let condition = arrСondition[getRandomInRange(0, 2)];
     alert(condition);
 
     let answerNumber = Math.floor((minValue + maxValue) / 2);
-    arrQestion = [`Вы загадали число ${answerNumber}?`, `Наверное, это число ${answerNumber}?`, `Возможно это число ${answerNumber}?`];
-    qestion = arrQestion[getRandomInRange(0, 2)];
+    let arrQestion = [`Вы загадали число ${answerNumber}?`, `Наверное, это число ${answerNumber}?`, `Возможно это число ${answerNumber}?`];
+    let qestion = arrQestion[getRandomInRange(0, 2)];
     let orderNumber = 1;
     let orderNumberField = document.getElementById('orderNumberField');
     let answerField = document.getElementById('answerField');
