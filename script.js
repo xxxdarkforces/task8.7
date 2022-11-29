@@ -4,7 +4,7 @@ function getRandomInRange(min, max) {
 
 function nanMin() {
     if (isNaN(minValue)) {
-        return minValue = 1;
+        return minValue = -999;
     } else if (minValue <= -1000) {
         return minValue = -999;
     } else {
@@ -13,7 +13,7 @@ function nanMin() {
 }
 function nanMax() {
     if (isNaN(maxValue)) {
-        return maxValue = 100;
+        return maxValue = 999;
     } else if (maxValue >= 1000) {
         return maxValue = 999;
     } else {
