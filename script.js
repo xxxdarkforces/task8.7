@@ -81,7 +81,7 @@ document.getElementById('btnOver').addEventListener('click', function () {
 
 document.getElementById('btnLess').addEventListener('click', function () {
     if (gameRun) {
-        if (minValue === maxValue || maxValue < minValue) {
+        if (minValue === maxValue || maxValue < minValue || minValue > answerNumber - 1) {
             const arrAnswerPhrase = [`Вы загадали неправильное число!\n\u{1F914}`, `Я сдаюсь..\n\u{1F92F}`, `Что то вы меня обманываете\n\u{1F635}`];
             answerPhrase = arrAnswerPhrase[getRandomInRange(0, 2)];
             answerField.innerText = answerPhrase;
