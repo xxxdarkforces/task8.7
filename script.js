@@ -13,7 +13,7 @@ function limitMaxValue() {
 }
 
 function restartGameRun() {
-    alert("Вы указали минимальное число больше или равное максимальному, пожалуйста укажите верный диапозон! Начнём все занова...");
+    alert('Вы указали минимальное число больше или равное максимальному, пожалуйста укажите верный диапозон! Начнём все занова...');
     startGame();
     return
 }
@@ -25,9 +25,11 @@ function startGame() {
     minValue = limitMinValue(minValue);
     maxValue = limitMaxValue(maxValue);
     gameRun = minValue <= maxValue ? true : restartGameRun();
-    let arrСondition = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Введите любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
-    let condition = arrСondition[getRandomInRange(0, 2)];
-    alert(condition);
+    if (gameRun) {
+        const ARR_CONDITION = [`Загадайте любое целое число от ${minValue} до ${maxValue}, я буду его отгадывать`, `Введите любое целое число от ${minValue} до ${maxValue}, я быстро справлюсь`, `Придумайте целое число от ${minValue} до ${maxValue}, я его отгадаю`];
+        let condition = ARR_CONDITION[getRandomInRange(0, 2)];
+        alert(condition);
+    };
 
     let answerNumber = Math.floor((minValue + maxValue) / 2);
     let arrQestion = [`Вы загадали число ${answerNumber}?`, `Наверное, это число ${answerNumber}?`, `Возможно это число ${answerNumber}?`];
@@ -38,7 +40,6 @@ function startGame() {
     orderNumberField.innerText = orderNumber;
     answerField.innerText = qestion;
     const ARR_ANSWER_PHRASE = [`Вы загадали неправильное число!\n\u{1F914}`, `Я сдаюсь..\n\u{1F92F}`, `Что то вы меня обманываете\n\u{1F635}`];
-    const ARR_EQUAL = [`Я всегда угадываю\n\u{1F60E}`, `Это было легко\n\u{1F60E}`, `Как все просто\n\u{1F60E}`];
 
     document.getElementById('btnOver').addEventListener('click', function () {
         if (gameRun) {
@@ -78,6 +79,7 @@ function startGame() {
 
     document.getElementById('btnEqual').addEventListener('click', function () {
         if (gameRun) {
+            const ARR_EQUAL = [`Я всегда угадываю\n\u{1F60E}`, `Это было легко\n\u{1F60E}`, `Как все просто\n\u{1F60E}`];
             equal = ARR_EQUAL[getRandomInRange(0, 2)];
             answerField.innerText = equal;
             gameRun = false;
