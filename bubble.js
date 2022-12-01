@@ -3,6 +3,7 @@ const clip = (v, min, max = Infinity) => {
     else if (v > max) return max;
     else return v;
 };
+
 const randRange = (min, max) => Math.random() * max + min;
 function bubble(x, y, rect, hue, target) {
     const size = randRange(20, rect.width / 10);
