@@ -1,4 +1,60 @@
 .game-card {
-    height: 100vh;
+    height: 500px;
+    width: 600px;
     font-family: 'Open Sans', monospace;
+    margin: 0 auto;
+}
+
+.card-header {
+    background-color: rgba(226, 5, 255, 0.08);
+}
+
+.btn-info {
+    background-color: #6817b8;
+}
+
+.btn-success {
+    background-color: #2883a7;
+}
+
+.bubble-container {
+    padding: 40px;
+    margin: 30px;
+    position: relative;
+}
+
+.bubble-content {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 16px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.9);
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    min-height: 200px;
+    border-radius: 20px;
+}
+
+span.bubble {
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: blow 2s ease-in infinite;
+    transition: all 400ms ease;
+}
+
+@keyframes blow {
+    0% {
+        transform: translate(-50%, -50%) scale(0.1);
+        opacity: 0;
+    }
+
+    10% {
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -100%);
+        opacity: 0;
+    }
 }
